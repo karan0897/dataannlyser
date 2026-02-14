@@ -1,0 +1,15 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Flask temporary folders
+python-api/uploads/
+python-api/cleaned/
+python-api/charts/
+
+# Node modules
+server/node_modules/
+
+# VS Code settings
+.vscode/

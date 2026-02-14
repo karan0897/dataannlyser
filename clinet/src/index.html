@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Excel Data Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h1>📊 Excel Data Analyzer</h1>
+
+  <!-- FILE UPLOAD -->
+  <label for="fileInput">Upload Excel / CSV</label>
+  <input type="file" id="fileInput" accept=".csv,.xlsx">
+
+  <!-- MODE -->
+  <div class="section">
+    <h3>Select Action</h3>
+    <button onclick="selectMode('clean')">Clean Data</button>
+    <button onclick="selectMode('analysis')">Analyze Data</button>
+  </div>
+
+  <!-- CLEAN OPTIONS -->
+  <div class="section hidden" id="cleanOptions">
+    <h3>🧹 Data Cleaning</h3>
+    <label><input type="checkbox" id="removeNull"> Remove Null Values</label>
+    <select id="nullType" class="hidden">
+      <option value="">Remove Null From</option>
+      <option value="row">Rows</option>
+      <option value="column">Columns</option>
+    </select>
+    <label><input type="checkbox" id="removeDuplicate"> Remove Duplicate Values</label>
+    <select id="dupType" class="hidden">
+      <option value="">Remove Duplicate From</option>
+      <option value="row">Rows</option>
+      <option value="column">Columns</option>
+    </select>
+  </div>
+
+  <!-- ANALYSIS OPTIONS -->
+  <div class="section hidden" id="analysisOptions">
+    <h3>📈 Data Analysis</h3>
+    <label><input type="checkbox" id="excludeNull"> Exclude Null Values</label>
+    <label><input type="checkbox" id="excludeDuplicate"> Exclude Duplicates</label>
+    <h4>Select Charts</h4>
+    <label><input type="checkbox" value="bar" class="chart"> Bar Graph</label>
+    <label><input type="checkbox" value="hist" class="chart"> Histogram</label>
+    <label><input type="checkbox" value="pie" class="chart"> Pie Chart</label>
+  </div>
+
+  <!-- SUBMIT -->
+  <button class="submit" onclick="submitData()">Submit</button>
+
+  <!-- OUTPUT -->
+  <div class="output" id="outputSection" style="display:none;">
+    <h3>📁 Output</h3>
+    <p>⬇ Cleaned Excel / CSV download</p>
+    <button id="downloadBtn">Download Cleaned File</button>
+
+    <p>📊 Charts:</p>
+    <div id="chartsOutput"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
